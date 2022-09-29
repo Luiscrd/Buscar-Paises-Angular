@@ -1,0 +1,11 @@
+.match-parent {
+  width: 100%;
+  height: 100%;
+}
+
+.bg-primary{
+  background-color: #2cdede !important;
+  color: #2a2c2c;
+}
+
+

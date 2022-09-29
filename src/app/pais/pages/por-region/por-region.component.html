@@ -1,0 +1,29 @@
+<h2>Por Region</h2>
+<hr>
+
+<div class="row">
+  <div class="col">
+    <select class="form-select" aria-label="Default select example" [(ngModel)]="seleccionado" (change)="buscarSelect()">
+      <option selected value="">Seleccione Region...</option>
+      <option *ngFor="let region of regiones" value="{{region.codigo}}">{{ region.nombre }}</option>
+    </select>
+  </div>
+</div>
+
+<hr>
+
+<!-- <div class="row">
+  <div class="col">
+    <app-pais-input (onEnter)="buscar( $event )" (onDebounce)="sujerencias( $event )"></app-pais-input>
+  </div>
+</div>
+
+<hr> -->
+
+<div *ngIf="hayError" class="alert alert-danger">No se encontró nada con el termino: '{{ termino }}'</div>
+
+<div *ngIf="paisesv2.length != 0" class="row">
+  <div class="col">
+    <app-pais-tabla-v2 [paises]="paisesv2"></app-pais-tabla-v2>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<h2>Por Capital</h2>
+<hr>
+
+<div class="row">
+  <div class="col">
+   <app-pais-input (onEnter)="buscar( $event )" (onDebounce)="sujerencias( $event )" placeholder="Buscar por capital..."></app-pais-input>
+  </div>
+</div>
+
+<ul class="list-group">
+  <li *ngFor="let pais of paisesSujeridos" class="list-group-item list-group-item-action" [routerLink]="['/pais', pais.cca3]">{{ pais.name.common }}</li>
+  <li *ngIf="mostrarSujerencias" class="list-group-item list-group-item-action" style="color:#1190c6; font-weight: bold;" (click)="buscarSujerido()">Buscar "{{ termino }}"</li>
+</ul>
+
+<hr>
+
+<div *ngIf="hayError" class="alert alert-danger">No se encontró nada con el termino: '{{ termino }}'</div>
+
+<div *ngIf="paises.length != 0" class="row">
+  <div class="col">
+    <app-pais-tabla [paises]="paises"></app-pais-tabla>
+  </div>
+</div>

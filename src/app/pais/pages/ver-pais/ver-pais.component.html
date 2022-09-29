@@ -1,0 +1,52 @@
+<div *ngIf="!pais; else divPais" class="alert alert-info">Espere por favor...</div>
+<ng-template #divPais>
+  <div class="row">
+    <div class="col-12">
+      <h2 class="tit-pais">País: <small>{{ pais.translations['es'] }}</small></h2>
+      <hr>
+    </div>
+  </div>
+
+  <div class="row animate__fadeIn">
+    <div class="col-5">
+      <h3>Bandera</h3>
+      <img [src]="pais.flag" [alt]="pais.name.official" class="img-thumbnail">
+    </div>
+    <div class="col-7">
+      <h3>Información</h3>
+      <ul class="list-group">
+        <li class="list-group-item d-flex justify-content-between p-6"><strong>Población</strong> {{ pais.population | number }} hab.</li>
+        <li class="list-group-item d-flex justify-content-between p-6"><strong>Región</strong> {{ pais.region }}</li>
+        <li class="list-group-item d-flex justify-content-between p-6"><strong>Capital</strong> {{ pais.capital }}</li>
+        <li class="list-group-item d-flex justify-content-between p-6"><strong>Moneda</strong> {{ moneda }} - {{ simbolo }}</li>
+        <li class="list-group-item d-flex justify-content-between p-6"><strong>GoogleMaps</strong> <a [href]="mapaG" target="_blank">==> Ir</a></li>
+        <!-- <li class="list-group-item d-flex justify-content-between p-6"><strong>OpenStreetMaps</strong> <a [href]="mapaO" target="_blank">==> Ir</a></li> -->
+      </ul>
+    </div>
+  </div>
+  <h3>Traducciones</h3>
+  <div class="row">
+    <div class="col d-flex flex-wrap align-items-center justify-content-between tradu">
+      <span class="badge bg-primary mb-3">Igles: {{ pais.name }}</span>
+      <span class="badge bg-primary mb-3">Italiano: {{ pais.translations['it'] }}</span>
+      <span class="badge bg-primary mb-3">Frances: {{ pais.translations['fr'] }}</span>
+      <span class="badge bg-primary mb-3">Aleman: {{ pais.translations['de'] }}</span>
+      <span class="badge bg-primary mb-3">Japones: {{ pais.translations['ja'] }}</span>
+      <span class="badge bg-primary mb-3">Arabe: {{ pais.translations['fa'] }}</span>
+
+    </div>
+  </div>
+  <!-- <pre class="mt-5">{{ pais |  json }}</pre> -->
+  <div class="row mt-5">
+    <div class="col d-flex flex-wrap align-items-center justify-content-evenly">
+      <img src="{{logo || 'https://pic.onlinewebfonts.com/svg/img_546302.png' }}" [alt]="pais.name" width="110">
+      <div>
+      <!-- <a [href]="mapaG" target="_blank">Mapa GoogleMaps: {{ mapaG }}</a>
+      <br><br> -->
+      <a [href]="mapaO" target="_blank">Mapa OpenStreetMaps: {{ mapaO }}</a>
+    </div>
+    </div>
+  </div>
+</ng-template>
+
+
